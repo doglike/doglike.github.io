@@ -1,12 +1,6 @@
 <!docType html>
 <head>
   
-  <stylesheet>
-    #div{
-    color:blue;
-    }
-  </stylesheet>
-  
 
 <script>
   function test1(){
@@ -18,10 +12,24 @@
     var ob=document.getElementById('div1');
     ob.style='background-color:#ccc';
   }
+  
+  function tell(){
+  var ua =  navigator.userAgent;
+isAndroid = /Android/i.test(ua);
+isBlackBerry = /BlackBerry/i.test(ua);
+isWindowPhone = /IEMobile/i.test(ua);
+isIOS = /iPhone|iPad|iPod/i.test(ua);
+isMobile = isAndroid || isBlackBerry || isWindowPhone || isIOS;
+if(isAndroid) isMobile = 'android';
+if(isBlackBerry) isMobile = 'BlackBerry';
+if(isWindowPhone) isMobile = 'WindowPhone';
+if(isIOS) isMobile = 'IOS';
+alert(isMobile);
+  }
 </script>
 
 </head>
 <body>
-  <div id="div1" sytle="height:100px;width:100px;background-color:#ccc" hover="test1()" onclick="test2()">sdsdfasdfasdff</div>
+  <div id="div1" style="height:100px;width:100px;background-color:#ccc" onmouse="test1()" onclick="tell()">sdsdfasdfasdff</div>
   
 </body>
