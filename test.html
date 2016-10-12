@@ -2,14 +2,19 @@
 <head>
 
 <script>
-  function test(){
+  function test1(){
     var ob=document.getElementById('div1');
     ob.style='background-color:red';
+  }
+  
+   function test2(){
+    var ob=document.getElementById('div1');
+    ob.style='background-color:#ccc';
   }
 </script>
 
 </head>
 <body>
-  <div id="div1" sytle="height:100px width:100px" onmouseover="test()">sdf</div>
+  <div id="div1" sytle="height:100px;width:100px;background-color:#ccc" onmouseover="test1()"onmouseleft="test2()">sdf</div>
   
 </body>
