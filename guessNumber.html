@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="GB2312">
+<title>一个猜数字的游戏</title>
+<style>
+*	{
+		font-size:24px;
+	}
+</style>
+<script>
+function newNumber()
+	{
+		var myNumber=[];
+		var serialNumber=[1,2,3,4,5,6,7,8,9,0];
+		
+		for(var i=0;i<4;i++)
+			{
+				var rNumber=Math.floor((serialNumber.length)*Math.random());
+				
+				myNumber.push(serialNumber[rNumber]);
+				serialNumber.splice(rNumber,1);
+
+			}		
+		return myNumber;
+	}
+function compareNumber(setNumber,inNumber)
+{
+	var result=[0,0];
+	
+	for(var i=0;i<setNumber.length;i++){
+		
+		for(var j=0;j<inNumber.length;j++){
+				if(setNumber[i]==inNumber[j] && i==j){
+					result[0]+=1;
+					}else if(setNumber[i]==inNumber[j]){
+					result[1]+=1;
+						}
+			}
+		}
+		return result;
+}
+function notSame(num){
+	for(var i=0;i<num.length-1;i++){
+			for(var j=i+1;j<num.length;j++){
+				if(num[i]==num[j]){
+					return 0;
+					}
+				}
+		}
+		return 1;
+	}
+function outCome(fatherNode,re,rightNum){
+	
+	var oLi=document.createElement("li");
+	if(re[0]==4)
+		{
+			oLi.innerHTML="恭喜你答对了！答案就是："+ rightNum+"     (刷新重玩)";
+		}else
+		{
+			oLi.innerHTML=re[0]+"A"+re[1]+"B";
+		}
+	
+	fatherNode.appendChild(oLi);
+		
+	}
+window.onload=function()
+{	
+	var oText=document.getElementById("txt1");
+	var oBtn=document.getElementById("btn1");
+	var oUl=document.getElementById("outCome");
+	
+	var newNum=newNumber();
+	
+	//alert(newNum);//剧透专用
+	
+	oBtn.onclick=function()
+	{	
+		if(oText && oText.value.length==4 && notSame(oText.value))
+			{
+				var inNumber=[];
+				for(var i=0;i<4;i++){	inNumber[i]=oText.value[i];}
+				
+				result=compareNumber(newNum,inNumber);
+				outCome(oUl,result,oText.value);
+				oText.value="";
+			}else
+			{
+				alert("请输入4位不重复的数字");
+			}
+	}
+	
+}
+
+</script>
+
+
+</head>
+
+<body>
+<input id="txt1" type="text" />
+<input id="btn1" type="button" value="猜一下" />
+<div id="div1">
+<ul id="outCome">
+	<li>-------结果-------</li>
+</ul>
+
+</div>
+
+
+
+</body>
+</html>
