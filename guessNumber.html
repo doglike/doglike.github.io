@@ -1,8 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="GB2312">
-<title>Ò»¸ö²ÂÊı×ÖµÄÓÎÏ·</title>
+<title>ä¸€ä¸ªçŒœæ•°å­—çš„æ¸¸æˆ</title>
 <style>
 *	{
 		font-size:24px;
@@ -50,15 +49,15 @@ function notSame(num){
 		}
 		return 1;
 	}
-function outCome(fatherNode,re,rightNum){
+function outCome(fatherNode,re,inNumber){
 	
 	var oLi=document.createElement("li");
 	if(re[0]==4)
 		{
-			oLi.innerHTML="¹§Ï²Äã´ğ¶ÔÁË£¡´ğ°¸¾ÍÊÇ£º"+ rightNum+"     (Ë¢ĞÂÖØÍæ)";
+			oLi.innerHTML="æ­å–œä½ ç­”å¯¹äº†ï¼ç­”æ¡ˆå°±æ˜¯ï¼š"+ inNumber+"     (åˆ·æ–°é‡ç©)";
 		}else
 		{
-			oLi.innerHTML=re[0]+"A"+re[1]+"B";
+			oLi.innerHTML=inNumber+":"+re[0]+"A"+re[1]+"B";
 		}
 	
 	fatherNode.appendChild(oLi);
@@ -72,7 +71,7 @@ window.onload=function()
 	
 	var newNum=newNumber();
 	
-	//alert(newNum);//¾çÍ¸×¨ÓÃ
+	//alert(newNum);//å‰§é€ä¸“ç”¨
 	
 	oBtn.onclick=function()
 	{	
@@ -82,11 +81,11 @@ window.onload=function()
 				for(var i=0;i<4;i++){	inNumber[i]=oText.value[i];}
 				
 				result=compareNumber(newNum,inNumber);
-				outCome(oUl,result,oText.value);
+				outCome(oUl,result,oText.value,oText.value);
 				oText.value="";
 			}else
 			{
-				alert("ÇëÊäÈë4Î»²»ÖØ¸´µÄÊı×Ö");
+				alert("è¯·è¾“å…¥4ä½ä¸é‡å¤çš„æ•°å­—");
 			}
 	}
 	
@@ -99,10 +98,10 @@ window.onload=function()
 
 <body>
 <input id="txt1" type="text" />
-<input id="btn1" type="button" value="²ÂÒ»ÏÂ" />
+<input id="btn1" type="button" value="çŒœä¸€ä¸‹" />
 <div id="div1">
 <ul id="outCome">
-	<li>-------½á¹û-------</li>
+	<li>-------ç»“æœ-------</li>
 </ul>
 
 </div>
