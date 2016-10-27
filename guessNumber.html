@@ -4,7 +4,7 @@
 <title>Let's Guess Number</title>
 <style>
 *	{
-		font-size:24px;
+		font-size:2em;
 	}
 </style>
 <script>
@@ -67,7 +67,7 @@ window.onload=function()
 {	
 	var oText=document.getElementById("txt1");
 	var oBtn=document.getElementById("btn1");
-	var oUl=document.getElementById("outCome");
+	var oOl=document.getElementById("outCome");
 	
 	var newNum=newNumber();
 	
@@ -81,11 +81,11 @@ window.onload=function()
 				for(var i=0;i<4;i++){	inNumber[i]=oText.value[i];}
 				
 				result=compareNumber(newNum,inNumber);
-				outCome(oUl,result,oText.value,oText.value);
+				outCome(oOl,result,oText.value,oText.value);
 				oText.value="";
 			}else
 			{
-				alert("Please enter 4 different number~");
+				alert("Please enter 4 different numbers~");
 			}
 	}
 	
@@ -100,9 +100,8 @@ window.onload=function()
 <input id="txt1" type="text" />
 <input id="btn1" type="button" value="I Guess" />
 <div id="div1">
-<ul id="outCome">
-	<li>-------Outcome-------</li>
-</ul>
+	<p style="background-color:#ccc;">The guessed Numbers :</p>
+<ol id="outCome"></ol>
 
 </div>
 
