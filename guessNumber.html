@@ -56,6 +56,10 @@ function outCome(fatherNode,re,inNumber){
 	if(re[0]==4)
 		{
 			oLi.innerHTML="恭喜你答对了！答案就是："+ inNumber+"     (刷新重玩)";
+			
+			var resetBtn=document.getElementById("btn2");
+			resetBtn.style.display="block";
+
 		}else
 		{
 			oLi.innerHTML=inNumber+":"+re[0]+"A"+re[1]+"B";
@@ -64,10 +68,11 @@ function outCome(fatherNode,re,inNumber){
 	fatherNode.appendChild(oLi);
 		
 	}
-function clearThePage()
+function restGame()
 	{
 		var removeLi=document.getElementById("outCome");
 		var ii=removeLi.children.length;
+		
 		
 		for(var i=0;i<ii;i++){
 			removeLi.removeChild(removeLi.lastChild);
@@ -75,14 +80,18 @@ function clearThePage()
 	}
 function gameStart()
 {
-	clearThePage();
+	
 	var oText=document.getElementById("txt1");
 	var oBtn=document.getElementById("btn1");
 	var oOl=document.getElementById("outCome");
+	var resetBtn=document.getElementById("btn2");
+	
+	restGame();
+	resetBtn.style.display="none";
 	
 	var newNum=newNumber();
 	
-	//alert(newNum);//剧透专用
+	alert(newNum);//剧透专用
 	
 	oBtn.onclick=function()
 	{	
@@ -130,12 +139,12 @@ gameStart()
 
 <input id="txt1" type="text" />
 <input id="btn1" type="button" value="猜一下" />
-<input type="button" value="刷新重玩" onClick="gameStart();"/>
+
 <h3>猜数记录</h3>
 <div id="div1">
 <ol id="outCome"></ol>
 </div>
-
+<input id="btn2" type="button" value="刷新重玩" onClick="gameStart();"/>
 <footer>
 <p style="background-color:#ccc" >Developed by <a href="http://doglike.me">Doglike</a></p>
 
