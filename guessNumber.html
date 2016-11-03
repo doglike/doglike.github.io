@@ -55,11 +55,12 @@ function outCome(fatherNode,re,inNumber){
 	var oLi=document.createElement("li");
 	if(re[0]==4)
 		{
-			oLi.innerHTML="恭喜你答对了！答案就是："+ inNumber+"     (刷新重玩)";
+			oLi.innerHTML="恭喜你答对了！答案就是："+ inNumber;
 			
 			var resetBtn=document.getElementById("btn2");
 			resetBtn.style.display="block";
-
+			resetBtn.style.margin="10px auto 10px auto";
+			
 		}else
 		{
 			oLi.innerHTML=inNumber+":"+re[0]+"A"+re[1]+"B";
@@ -91,7 +92,7 @@ function gameStart()
 	
 	var newNum=newNumber();
 	
-	alert(newNum);//剧透专用
+	//alert(newNum);//剧透专用
 	
 	oBtn.onclick=function()
 	{	
@@ -145,8 +146,9 @@ gameStart()
 <ol id="outCome"></ol>
 </div>
 <input id="btn2" type="button" value="刷新重玩" onClick="gameStart();"/>
+
 <footer>
-<p style="background-color:#ccc" >Developed by <a href="http://doglike.me">Doglike</a></p>
+  <p style="background-color:#ccc" >Developed by <a href="http://doglike.me">Doglike</a></p>
 
 </footer>
 
